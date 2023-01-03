@@ -1,19 +1,19 @@
-import { 
-	Directive, 
-	HostListener, 
-	ElementRef 
+import {
+	Directive,
+	HostListener,
+	ElementRef
 } from '@angular/core';
-import { 
-  NG_VALUE_ACCESSOR, 
-  ControlValueAccessor 
+import {
+  NG_VALUE_ACCESSOR,
+  ControlValueAccessor
 } from '@angular/forms';
 
 @Directive({
   selector: '[numero]',
   providers: [{
-    provide: NG_VALUE_ACCESSOR, 
-    useExisting: NumeroDirective, 
-    multi: true 
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: NumeroDirective,
+    multi: true
   }]
 })
 export class NumeroDirective implements ControlValueAccessor {
@@ -25,7 +25,7 @@ export class NumeroDirective implements ControlValueAccessor {
 
   /**
    * Implementa evento de keyup para o elemnto da diretiva.
-   * 
+   *
    * @param any $event
    */
   @HostListener('keyup', ['$event'])
@@ -36,7 +36,7 @@ export class NumeroDirective implements ControlValueAccessor {
     valor = valor.replace(/[\D]/g, '');
 
     if (posDecimais > 0) {
-      valor = valor.substr(0, posDecimais) + '.' + 
+      valor = valor.substr(0, posDecimais) + '.' +
         valor.substr(posDecimais);
     }
 
@@ -45,9 +45,9 @@ export class NumeroDirective implements ControlValueAccessor {
   }
 
   /**
-   * Registra função a ser chamada para atualizar 
+   * Registra função a ser chamada para atualizar
    * valor na model.
-   * 
+   *
    * @param any fn
    */
   registerOnChange(fn: any): void {
@@ -55,9 +55,9 @@ export class NumeroDirective implements ControlValueAccessor {
   }
 
   /**
-   * Registra função a ser chamada para atualizar 
+   * Registra função a ser chamada para atualizar
    * valor na model para evento touched.
-   * 
+   *
    * @param any fn
    */
   registerOnTouched(fn: any): void {
@@ -66,7 +66,7 @@ export class NumeroDirective implements ControlValueAccessor {
 
   /**
    * Obtém o valor contido na model.
-   * 
+   *
    * @param any value
    */
   writeValue(value: any): void {

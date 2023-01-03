@@ -19,7 +19,7 @@ describe('AppComponent', () => {
   it(`should have as title 'conversor-de-moedas'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Conversor de moedas');
+    expect(app.title).toEqual('Currency converter');
   });
 
 });
